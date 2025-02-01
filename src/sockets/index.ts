@@ -13,20 +13,11 @@ const socketio = async (server: any) => {
       },
     });
 
-    io.close(() => {
-      console.log('Server and all connected sockets closed');
-    });
-
-    
     io.on('connection', async (socket: Socket) => {
       const id = (socket as any).user?.user?.id;
       console.log(`socket (${socket.id}) -> ${id}`);
-      
-
-      
     });
 
-    // await connectRedis(io);
 
     logger.info('  Socket server is running');
   } catch (err) {
